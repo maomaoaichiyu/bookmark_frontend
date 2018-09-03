@@ -1,0 +1,40 @@
+.SearchSection {
+  width: 50%;
+  background-color: #67B99A;
+  height: 100%;
+  margin: 5px;
+}
+.SearchBox {
+  height: 5%;
+  width: 90%;
+  margin: auto;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+div > div > input {
+  width: 60%;
+  margin-right: 5px;
+}
+div > div > button {
+  width: 10%;
+  margin-left: 5px;
+}
+.SearchResults, .bookmarkedResults {
+  height: 85%;
+  width: 90%;
+  margin: auto;
+}
+
+.bookmarkedSection {
+  width: 50%;
+  background-color: #AD85C6;
+  height: 100%;
+  margin: 5px;
+}
+div > h2 {
+  height: 5%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: auto;
+}
+
