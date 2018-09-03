@@ -6,12 +6,25 @@ import PropTypes from 'prop-types';
 
 class Search extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {searchInput: ''};
+  }
+
+  searchButtonClick = (event) => {
+    this.props.searchRepos(this.state.searchInput);
+  }
+
+  handleChange = (event) => {
+    this.setState({searchInput: event.target.value});
+  }
+
   render() {
     return (
       <div className="SearchSection">
         <div className="SearchBox">
-          <input type="text" placeholder="Input a keyword..."/>
-          <button onClick={() => this.props.search()}>Search</button>
+          <input type="text" value={this.state.searchInput} onChange={this.handleChange} placeholder="Input a keyword..."/>
+          <button onClick={this.searchButtonClick} disabled={!this.state.searchInput}>Search</button>
         </div>
         <div className="SearchResults">
           <ul>
@@ -31,7 +44,7 @@ Search.propTypes = {
     name: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired
   }).isRequired).isRequired,
-  search: PropTypes.func.isRequired
+  searchRepos: PropTypes.func.isRequired
 }
 
 const mapStateToProps = state => ({
@@ -39,7 +52,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  search: text => dispatch(search(text))
+  searchRepos: text => dispatch(search(text))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
