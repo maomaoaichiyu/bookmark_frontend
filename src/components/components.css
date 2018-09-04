@@ -1,6 +1,6 @@
 .SearchSection {
   width: 50%;
-  background-color: #67B99A;
+  background-color: rgba(255, 0, 0, 0.3);
   height: 100%;
   margin: 5px;
 }
@@ -29,6 +29,7 @@ div > div > button {
 .BookmarkedSection {
   width: 50%;
   background-color: #AD85C6;
+  background-color: rgba(40, 196, 245, 0.3);
   height: 100%;
   margin: 5px;
 }
