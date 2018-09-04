@@ -40,6 +40,18 @@ export const add = repo => {
   }
 }
 
+export const del = repo => {
+  return function (dispatch) {
+    let options = {
+      url: `${BACKEND_URL}/repos/${repo.id}`,
+      json: true,
+      body: repo
+    };
+    return request
+      .delete(options)
+  }
+}
+
 export const getAllBookmarked = () => {
   return function (dispatch) {
     let options = {
