@@ -37,7 +37,7 @@ class Search extends Component {
                       <div className="repoContent">
                         <div>{repo.name}</div>
                         <div>{repo.id}</div>
-                        <div>{repo.url}</div>
+                        <div><a href={repo.url}>{repo.url}</a></div>
                       </div>
                       <div className="addButton">
                         <img onClick={() => {this.addBookmark(repo)}} src={bookmark_icon} alt={`Bookmark ${repo.id}`}></img>

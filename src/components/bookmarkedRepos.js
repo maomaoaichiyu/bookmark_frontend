@@ -22,7 +22,7 @@ class Bookmarked extends Component {
                       <div className="repoContent">
                         <div>{repo.name}</div>
                         <div>{repo.id}</div>
-                        <div>{repo.url}</div>
+                        <div><a href={repo.url}>{repo.url}</a></div>
                       </div>
                       <div className="deleteButton">
                         <img onClick={() => {this.deleteBookmark(repo)}} src={delete_icon} alt={`Bookmark ${repo.id}`}></img>
