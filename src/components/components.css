@@ -70,7 +70,7 @@ div > h2 {
   text-align: left;
 }
 
-img {
+input[type=image] {
   height: 30px;
   width: 30px;
 }
