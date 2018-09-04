@@ -1,6 +1,6 @@
 import request from 'request-promise-native';
 
-const BACKEND_URL = process.env.SERVER_URL || 'http://localhost:10010';
+const BACKEND_URL = process.env.REACT_APP_SERVER_URL || 'http://localhost:10010';
 
 export const updateReposList = repos => ({
   type: 'UPDATE_REPOS_LIST',
