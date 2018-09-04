@@ -51,15 +51,15 @@ class Search extends Component {
             <div className="repoBlock" key={repo.id}>
               <div className="repoContent">
                 <div className="repoName">
-                  Name:
+                  Name:&nbsp;
                   {repo.name}
                 </div>
                 <div>
-                  Id:
+                  Id:&nbsp;
                   {repo.id}
                 </div>
                 <div>
-                  Link:
+                  Link:&nbsp;
                   <a href={repo.url} target="_blank" rel="noopener noreferrer">{repo.url}</a>
                 </div>
               </div>
