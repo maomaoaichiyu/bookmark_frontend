@@ -7,6 +7,11 @@ export const updateReposList = repos => ({
   repos
 })
 
+export const updateBookmarkedRepos = repos => ({
+  type: 'UPDATE_BOOKMARKED_REPOS',
+  repos
+})
+
 export const search = text => {
   return function (dispatch) {
     let options = {
@@ -32,5 +37,18 @@ export const add = repo => {
     };
     return request
       .put(options)
+  }
+}
+
+export const getAllBookmarked = () => {
+  return function (dispatch) {
+    let options = {
+      url: `${BACKEND_URL}/repos`,
+      json: true
+    };
+    return request
+      .get(options)
+      .then(result => dispatch(updateBookmarkedRepos(result)))
+      .catch(() => { return dispatch(updateBookmarkedRepos([])) });
   }
 }
