@@ -26,26 +26,31 @@ class Search extends Component {
     addRepo(repo);
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { searchRepos } = this.props;
+    const { searchInput } = this.state;
+    searchRepos(searchInput);
+  }
+
   render() {
     const { searchResults } = this.props;
     const { searchInput } = this.state;
     return (
       <div className="SearchSection">
-        <div className="SearchBox">
+        <form className="SearchBox" onSubmit={this.handleSubmit}>
           <input
             type="text"
             value={searchInput}
             onChange={this.handleChange}
             placeholder="Input a keyword..."
           />
-          <button
-            type="button"
-            onClick={this.searchButtonClick}
+          <input
+            type="submit"
+            value="Search"
             disabled={!searchInput}
-          >
-            Search
-          </button>
-        </div>
+          />
+        </form>
         <div className="SearchResults">
           {searchResults.map(repo => (
             <div className="repoBlock" key={repo.id}>
