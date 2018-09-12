@@ -6,14 +6,18 @@ import { getAllBookmarked, del } from '../actions';
 import deleteIcon from '../image/delete_icon.png';
 
 class Bookmarked extends Component {
+  componentDidMount() {
+    const { getAllBookmarkedRepos } = this.props;
+    getAllBookmarkedRepos();
+  }
+
   deleteBookmark = (repo) => {
     const { deleteRepo } = this.props;
     deleteRepo(repo);
   }
 
   render() {
-    const { getAllBookmarkedRepos, bookmarkedResults } = this.props;
-    getAllBookmarkedRepos();
+    const { bookmarkedResults } = this.props;
     return (
       <div className="BookmarkedSection">
         <h2>Bookmarked GitHub Repos:</h2>

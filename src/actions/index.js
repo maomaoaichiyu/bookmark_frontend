@@ -26,26 +26,6 @@ export const search = text => (dispatch) => {
     .catch(() => dispatch(updateReposList([])));
 };
 
-export const add = repo => () => {
-  const options = {
-    url: `${BACKEND_URL}/repos/${repo.id}`,
-    json: true,
-    body: repo,
-  };
-  return request
-    .put(options);
-};
-
-export const del = repo => () => {
-  const options = {
-    url: `${BACKEND_URL}/repos/${repo.id}`,
-    json: true,
-    body: repo,
-  };
-  return request
-    .delete(options);
-};
-
 export const getAllBookmarked = () => (dispatch) => {
   const options = {
     url: `${BACKEND_URL}/repos`,
@@ -55,4 +35,26 @@ export const getAllBookmarked = () => (dispatch) => {
     .get(options)
     .then(result => dispatch(updateBookmarkedRepos(result)))
     .catch(() => dispatch(updateBookmarkedRepos([])));
+};
+
+export const add = repo => (dispatch) => {
+  const options = {
+    url: `${BACKEND_URL}/repos/${repo.id}`,
+    json: true,
+    body: repo,
+  };
+  return request
+    .put(options)
+    .then(() => dispatch(getAllBookmarked()));
+};
+
+export const del = repo => (dispatch) => {
+  const options = {
+    url: `${BACKEND_URL}/repos/${repo.id}`,
+    json: true,
+    body: repo,
+  };
+  return request
+    .delete(options)
+    .then(() => dispatch(getAllBookmarked()));
 };
